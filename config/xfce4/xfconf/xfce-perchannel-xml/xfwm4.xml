@@ -90,7 +90,7 @@
       <value type="string" value="Workspace 6"/>
     </property>
 
-    <property name="applications" type="empty"
+    <property name="applications" type="empty">
       <property name="application-2" type="empty">
        <property name="class" type="string" value="Code"/>
        <property name="workspace" type="int" value="0"/>
