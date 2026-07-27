@@ -1,0 +1,72 @@
+
+Host hpc
+      User yn030245
+      Hostname login23-g-1.hpc.itc.rwth-aachen.de
+      IdentityFile /home/vaishnavahari/.ssh/id_ed25519_rwth_hpc
+      PreferredAuthentications publickey,keyboard-interactive
+
+Host n23* c23* r23* ga23* gpua23*
+    User yn030245
+    IdentityFile ~/.ssh/id_ed25519_rwth_hpc
+    PreferredAuthentications publickey,keyboard-interactive
+    ProxyJump hpc
+
+Host dev-gpu-1
+      User s_01k0950xnv29k2jf8bv07pyrha
+      Hostname ssh.lightning.ai
+      IdentityFile /home/vaishnavahari/.ssh/lightning_rsa
+      IdentitiesOnly yes
+      ServerAliveInterval 15
+      ServerAliveCountMax 4
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null
+
+Host dl4strucdata-exercises
+      User s_01kxra9yzbrvwrx7h87y3b7bay
+      Hostname ssh.lightning.ai
+      IdentityFile /home/vaishnavahari/.ssh/lightning_rsa
+      IdentitiesOnly yes
+      ServerAliveInterval 15
+      ServerAliveCountMax 4
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null
+
+Host myracer
+      User s_01kxtsreqw4xprxdvx21r86zvj
+      Hostname ssh.lightning.ai
+      IdentityFile /home/vaishnavahari/.ssh/lightning_rsa
+      IdentitiesOnly yes
+      ServerAliveInterval 15
+      ServerAliveCountMax 4
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null
+
+Host skillcomp
+      User s_01kvj21m2rasa99a5zm2ke4bx6
+      Hostname ssh.lightning.ai
+      IdentityFile /home/vaishnavahari/.ssh/lightning_rsa
+      IdentitiesOnly yes
+      ServerAliveInterval 15
+      ServerAliveCountMax 4
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null
+
+Host test-isaaclab-template
+      User s_01jvcxrds1248dnhe0sex03yrm
+      Hostname ssh.lightning.ai
+      IdentityFile /home/vaishnavahari/.ssh/lightning_rsa
+      IdentitiesOnly yes
+      ServerAliveInterval 15
+      ServerAliveCountMax 4
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null
+
+Host wm
+      User s_01kpr6h0dwnhy4w9tzc7vgxmb8
+      Hostname ssh.lightning.ai
+      IdentityFile /home/vaishnavahari/.ssh/lightning_rsa
+      IdentitiesOnly yes
+      ServerAliveInterval 15
+      ServerAliveCountMax 4
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null

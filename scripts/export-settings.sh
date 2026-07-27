@@ -36,5 +36,14 @@ if [[ -f "$WALLPAPER" ]]; then
   echo "exported wallpaper"
 fi
 
+mkdir -p "$REPO_DIR/config/git"
+cp "$HOME/.gitconfig" "$REPO_DIR/config/git/gitconfig"
+cp "$HOME/.config/git/ignore" "$REPO_DIR/config/git/ignore"
+echo "exported gitconfig"
+
+mkdir -p "$REPO_DIR/config/ssh"
+cp "$HOME/.ssh/config" "$REPO_DIR/config/ssh/config"
+echo "exported ssh config"
+
 echo "Settings captured into $REPO_DIR/config"
 echo "Review with: git -C \"$REPO_DIR\" diff"

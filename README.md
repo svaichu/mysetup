@@ -29,6 +29,8 @@ This runs, in order:
    Science skills from `claude-science/skills/` into the current org's
    `~/.claude-science/orgs/<org-id>/skills/` (no-op if Claude Science isn't
    set up yet).
+5. `scripts/apply-settings.sh` also appends a source line for
+   `config/bash/aliases.sh` to `~/.bashrc` (idempotent — safe to re-run).
 
 Log out and back in afterwards so XFCE picks up all the restored settings.
 
@@ -82,3 +84,15 @@ git add -A && git commit -m "Update claude science skills"
 - `scripts/export-claude-science-skills.sh` /
   `scripts/install-claude-science-skills.sh` — sync Claude Science skills
   between this repo and `~/.claude-science/orgs/<org-id>/skills/`.
+- `config/git/gitconfig`, `config/git/ignore` — `git config --global`
+  (user.name/email) and the global gitignore, restored to `~/.gitconfig`
+  and `~/.config/git/ignore`.
+- `config/ssh/config` — `~/.ssh/config` (host aliases, proxy jumps,
+  `IdentityFile` paths). The private keys themselves (e.g.
+  `id_ed25519_rwth_hpc`, `lightning_rsa`) are **not** in this repo — copy
+  those over separately, e.g. via a password manager or a USB stick.
+- `config/bash/aliases.sh` — aliases (`ll`, `la`, `l`, `alert`,
+  `cleanup-vscode`, `sc`) and the `assh` function from `~/.bashrc`.
+  Maintained by hand, not auto-exported — `~/.bashrc` also holds several
+  API tokens/secrets that must never land in this repo, so keep this file
+  scoped to aliases/functions only when adding to it.
