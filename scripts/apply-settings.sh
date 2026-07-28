@@ -33,6 +33,11 @@ cp "$REPO_DIR/config/redshift/redshift.conf" "$HOME/.config/redshift.conf"
 cp "$REPO_DIR/config/autostart/redshift-gtk.desktop" "$HOME/.config/autostart/redshift-gtk.desktop"
 echo "applied redshift.conf"
 
+mkdir -p "$HOME/.config/devilspie2"
+cp "$REPO_DIR/config/devilspie2/"*.lua "$HOME/.config/devilspie2/"
+cp "$REPO_DIR/config/autostart/devilspie2.desktop" "$HOME/.config/autostart/devilspie2.desktop"
+echo "applied devilspie2 rules"
+
 if [[ -f "$REPO_DIR/config/wallpaper/bg.png" ]]; then
   mkdir -p "$HOME/Downloads"
   cp "$REPO_DIR/config/wallpaper/bg.png" "$HOME/Downloads/bg.png"

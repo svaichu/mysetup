@@ -11,7 +11,7 @@ if [[ ! -d "$SRC" ]] || [[ -z "$(ls -A "$SRC" 2>/dev/null)" ]]; then
   exit 0
 fi
 
-ORG_SKILLS_DIR="$(find "$HOME/.claude-science/orgs" -mindepth 2 -maxdepth 2 -type d -name skills 2>/dev/null | head -n1)"
+ORG_SKILLS_DIR="$(find "$HOME/.claude-science/orgs" -mindepth 2 -maxdepth 2 -type d -name skills 2>/dev/null | head -n1 || true)"
 
 if [[ -z "$ORG_SKILLS_DIR" ]]; then
   echo "Claude Science not set up yet (no ~/.claude-science/orgs/*/skills found), skipping" >&2

@@ -20,8 +20,19 @@ APT_PACKAGES=(
   redshift
   redshift-gtk
   fprintd
+  libpam-fprintd
+  devilspie2
 )
 sudo apt-get install -y "${APT_PACKAGES[@]}"
+
+# --- Fingerprint auth (login + lock screen / resume-from-sleep) --------
+# Wires pam_fprintd.so into /etc/pam.d/common-auth, which lightdm and
+# xfce4-screensaver both @include, so this covers boot login and unlock.
+# Falls back to password automatically if no finger is enrolled/matched.
+sudo pam-auth-update --enable fprintd
+if ! fprintd-list "$USER" >/dev/null 2>&1 || ! fprintd-list "$USER" 2>/dev/null | grep -q '#0'; then
+  echo "No fingerprints enrolled for $USER yet — run 'fprintd-enroll' to add one."
+fi
 
 # --- VS Code (Microsoft apt repo) --------------------------------------
 if ! command -v code >/dev/null 2>&1; then
@@ -39,10 +50,10 @@ fi
 
 # --- Zotero (official tarball, installed to ~/.local/share) ------------
 if ! command -v zotero >/dev/null 2>&1; then
-  wget -qO /tmp/zotero.tar.bz2 "https://www.zotero.org/download/client/dl?platform=linux-x86_64&channel=release"
+  wget -qO /tmp/zotero.tar.xz "https://www.zotero.org/download/client/dl?platform=linux-x86_64&channel=release"
   mkdir -p "$HOME/.local/share/zotero"
-  tar -xjf /tmp/zotero.tar.bz2 --strip-components=1 -C "$HOME/.local/share/zotero"
-  rm -f /tmp/zotero.tar.bz2
+  tar -xJf /tmp/zotero.tar.xz --strip-components=1 -C "$HOME/.local/share/zotero"
+  rm -f /tmp/zotero.tar.xz
   "$HOME/.local/share/zotero/set_launcher_icon"
   mkdir -p "$HOME/.local/share/applications"
   desktop-file-install --dir="$HOME/.local/share/applications" \

@@ -17,3 +17,4 @@ redshift and its config
 stretchly
 fprintd
 uv
+devilspie2 (workspace rules: code=0, terminal=1, firefox=4)

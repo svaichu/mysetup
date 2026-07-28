@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=devilspie2
+Comment=Pins windows (VS Code, terminal, Firefox) to fixed workspaces on open
+Exec=devilspie2
+Icon=preferences-system-windows
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupNotify=false
+Hidden=false
+X-GNOME-Autostart-enabled=true

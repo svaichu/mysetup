@@ -16,13 +16,16 @@ This runs, in order:
 
 1. `scripts/install-apps.sh` — installs the apps listed in
    `agent/myapps.md` (VS Code, Zotero, KeePassXC, Docker, wmctrl, btop,
-   htop, fastfetch, GitHub CLI, redshift, fprintd, Claude Code, stretchly,
-   and uv with its full tool list: huggingface-hub, lightning-sdk,
+   htop, fastfetch, GitHub CLI, redshift, fprintd + libpam-fprintd (also
+   enables fingerprint auth for login and lock screen via pam-auth-update),
+   devilspie2, Claude Code,
+   stretchly, and uv with its full tool list: huggingface-hub, lightning-sdk,
    matlab-proxy, nbterm, syncmymoodle, take-me-cloud, zotero-mcp-server)
    via apt / official installers.
 2. `scripts/apply-settings.sh` — restores XFCE panel, window manager
    (workspaces), keyboard shortcuts, terminal, and theme/icon settings from
-   `config/xfce4/`, plus the redshift config from `config/redshift/`.
+   `config/xfce4/`, plus the redshift config from `config/redshift/` and the
+   devilspie2 workspace rules from `config/devilspie2/`.
 3. `scripts/install-claude-skills.sh` — restores custom Claude Code skills
    from `claude/skills/` into `~/.claude/skills/`.
 4. `scripts/install-claude-science-skills.sh` — restores custom Claude
@@ -72,6 +75,11 @@ git add -A && git commit -m "Update claude science skills"
   xsettings theme/icons, keyboard layout).
 - `config/redshift/redshift.conf`, `config/autostart/redshift-gtk.desktop` —
   redshift color-temperature config and its autostart entry.
+- `config/devilspie2/window_workspaces.lua`,
+  `config/autostart/devilspie2.desktop` — devilspie2 rules that pin VS Code
+  to workspace 1, the terminal to workspace 2, and Firefox to workspace 5
+  (devilspie2's `set_window_workspace()` counts from 1, matching XFCE's UI
+  labels directly), plus its autostart entry.
 - `config/wallpaper/bg.png` — desktop background, restored to
   `~/Downloads/bg.png` (the path `xfce4-desktop.xml` points at).
 - `claude/skills/` — custom Claude Code skills, mirrored from

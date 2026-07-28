@@ -29,6 +29,11 @@ cp "$HOME/.config/redshift.conf" "$REPO_DIR/config/redshift/redshift.conf"
 cp "$HOME/.config/autostart/redshift-gtk.desktop" "$REPO_DIR/config/autostart/redshift-gtk.desktop"
 echo "exported redshift"
 
+mkdir -p "$REPO_DIR/config/devilspie2"
+cp "$HOME/.config/devilspie2/"*.lua "$REPO_DIR/config/devilspie2/"
+cp "$HOME/.config/autostart/devilspie2.desktop" "$REPO_DIR/config/autostart/devilspie2.desktop"
+echo "exported devilspie2"
+
 WALLPAPER="$HOME/Downloads/bg.png"
 if [[ -f "$WALLPAPER" ]]; then
   mkdir -p "$REPO_DIR/config/wallpaper"
