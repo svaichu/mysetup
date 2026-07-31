@@ -2,7 +2,7 @@
 -- counts from 1, matching XFCE's UI workspace labels directly.
 -- Restored to ~/.config/devilspie2/ by scripts/apply-settings.sh.
 
-if (get_window_class() == "Code") then
+if (get_window_class() == "code") then
     set_window_workspace(1)
 end
 
