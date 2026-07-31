@@ -51,6 +51,8 @@ echo "applied gitconfig"
 
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
+mkdir -p "$HOME/.ssh/sockets"
+chmod 700 "$HOME/.ssh/sockets"
 if [[ -f "$HOME/.ssh/config" ]]; then
   cp "$HOME/.ssh/config" "$HOME/.ssh/config.bak.$(date +%Y%m%d%H%M%S)"
 fi

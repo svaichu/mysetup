@@ -4,12 +4,18 @@ Host hpc
       Hostname login23-g-1.hpc.itc.rwth-aachen.de
       IdentityFile /home/vaishnavahari/.ssh/id_ed25519_rwth_hpc
       PreferredAuthentications publickey,keyboard-interactive
+      ControlMaster auto
+      ControlPath ~/.ssh/sockets/%r@%h-%p
+      ControlPersist 4h
 
 Host n23* c23* r23* ga23* gpua23*
     User yn030245
     IdentityFile ~/.ssh/id_ed25519_rwth_hpc
     PreferredAuthentications publickey,keyboard-interactive
     ProxyJump hpc
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/%r@%h-%p
+    ControlPersist 4h
 
 Host dev-gpu-1
       User s_01k0950xnv29k2jf8bv07pyrha
